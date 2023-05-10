@@ -599,14 +599,14 @@ async def show_balance_handle(update: Update, context: CallbackContext):
     # image generation
     image_generation_n_spent_dollars = config.models["info"]["dalle-2"]["price_per_1_image"] * n_generated_images
     if n_generated_images != 0:
-        details_text += f"- DALL·E 2 (image generation): <b>{image_generation_n_spent_dollars:.03f}$</b> / <b>{n_generated_images} generated images</b>\n"
+        details_text += f"- DALL·E 2 (图像生成): <b>{image_generation_n_spent_dollars:.03f}$</b> / <b>{n_generated_images} 生成的图像</b>\n"
 
     total_n_spent_dollars += image_generation_n_spent_dollars
 
     # voice recognition
     voice_recognition_n_spent_dollars = config.models["info"]["whisper"]["price_per_1_min"] * (n_transcribed_seconds / 60)
     if n_transcribed_seconds != 0:
-        details_text += f"- Whisper (voice recognition): <b>{voice_recognition_n_spent_dollars:.03f}$</b> / <b>{n_transcribed_seconds:.01f} seconds</b>\n"
+        details_text += f"- Whisper (语音识别): <b>{voice_recognition_n_spent_dollars:.03f}$</b> / <b>{n_transcribed_seconds:.01f} 秒</b>\n"
 
     total_n_spent_dollars += voice_recognition_n_spent_dollars
 
