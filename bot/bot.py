@@ -208,7 +208,7 @@ async def message_handle(update: Update, context: CallbackContext, message=None,
         return
 
     if db.get_user_attribute(user_id, "current_buffer_setting") is True:
-        if _message != "Done":
+        if _message != "Done" or "done" or "完成":
             existing_buffer = db.get_buffer_message(user_id)
             db.set_buffer_message(user_id, _message if existing_buffer is None else existing_buffer + _message)
             await update.message.reply_text("已缓存 📝，发送<b>Done</b>以生成响应", parse_mode=ParseMode.HTML)
